@@ -1,23 +1,47 @@
 <mat-sidenav-container class="app-sidenav-container"
                        [class.dark-theme]="isDarkTheme" [dir]="dir">
-  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
+
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z5"
                [opened]="!isScreenSmall()"
                [mode]="isScreenSmall() ? 'over' : 'side'">
     <mat-toolbar color="primary">
-      Contacts
+      Flexbox
     </mat-toolbar>
 
     <mat-nav-list>
-      <mat-list-item >
+
+      <mat-list-item>
         <a matLine [routerLink]="'flexboxtheory'">
           Theory
         </a>
       </mat-list-item>
-      <mat-list-item >
+
+      <mat-nav-list dense style="margin-left:20px;">
+        <mat-list-item>Parent properties</mat-list-item>
+
+        <mat-nav-list dense style="margin-left:40px;">
+          <mat-list-item>
+            <a matLine [routerLink]="'flexboxtheory'">
+              Display
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a matLine [routerLink]="'test'">
+              Flex-Direction
+            </a>
+          </mat-list-item>
+        </mat-nav-list>
+
+        <mat-list-item>Children properties</mat-list-item>
+      </mat-nav-list>
+
+
+      <mat-list-item>
         <a matLine [routerLink]="'test'">
           Test
         </a>
       </mat-list-item>
+
     </mat-nav-list>
 
   </mat-sidenav>
