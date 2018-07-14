@@ -17,28 +17,36 @@
       </mat-list-item>
 
       <mat-nav-list dense style="margin-left:20px;">
-        <mat-list-item>Parent properties</mat-list-item>
+        <mat-list-item>
+          <a matLine [routerLink]="'containerproperties'">
+            Container properties
+          </a>
+        </mat-list-item>
 
-        <mat-nav-list dense style="margin-left:40px;">
+        <!--<mat-nav-list dense style="margin-left:40px;">
           <mat-list-item>
-            <a matLine [routerLink]="'flexboxtheory'">
+            <a matLine [routerLink]="'test'">
               Display
             </a>
           </mat-list-item>
           <mat-list-item>
-            <a matLine [routerLink]="'test'">
+            <a matLine [routerLink]="'flexboxtheory'">
               Flex-Direction
             </a>
           </mat-list-item>
         </mat-nav-list>
-
-        <mat-list-item>Children properties</mat-list-item>
+        -->
+        <mat-list-item>
+          <a matLine [routerLink]="'itemsproperties'">
+            Items properties
+          </a>
+        </mat-list-item>
       </mat-nav-list>
 
 
       <mat-list-item>
         <a matLine [routerLink]="'test'">
-          Test
+          Practice
         </a>
       </mat-list-item>
 
