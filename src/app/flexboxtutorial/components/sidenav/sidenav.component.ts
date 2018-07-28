@@ -1,20 +1,4 @@
-// import { Component, OnInit } from '@angular/core';
-//
-// @Component({
-//   selector: 'app-sidenav',
-//   templateUrl: './sidenav.component.html',
-//   styleUrls: ['./sidenav.component.scss']
-// })
-// export class SidenavComponent implements OnInit {
-//
-//   constructor() { }
-//
-//   ngOnInit() {
-//   }
-//
-// }
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 
@@ -52,7 +36,6 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.router.events.subscribe(() => {
       if (this.isScreenSmall()) {
         this.sidenav.close();

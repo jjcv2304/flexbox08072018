@@ -7,10 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlexboxtutorialAppComponent } from './flexboxtutorial-app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
-import { FlexboxtheoryComponent } from './components/flexboxtheory/flexboxtheory.component';
+import { FlexboxtheoryComponent } from './components/flexboxtheory/generalproperties/flexboxtheory.component';
 import { ContainerpropertiesComponent } from './components/flexboxtheory/containerproperties/containerproperties.component';
 import { ItemspropertiesComponent } from './components/flexboxtheory/itemsproperties/itemsproperties.component';
 
@@ -21,7 +20,6 @@ const routes: Routes = [
       { path: 'flexboxtheory', component: FlexboxtheoryComponent },
       { path: 'containerproperties', component: ContainerpropertiesComponent },
       { path: 'itemsproperties', component: ItemspropertiesComponent },
-      { path: 'test', component: MainContentComponent }
     ]
   },
   { path: '**', redirectTo: '' }
@@ -35,7 +33,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FlexboxtutorialAppComponent, ToolbarComponent, MainContentComponent,
+  declarations: [FlexboxtutorialAppComponent, ToolbarComponent,
     SidenavComponent, FlexboxtheoryComponent, ContainerpropertiesComponent,
     ItemspropertiesComponent]
 })
