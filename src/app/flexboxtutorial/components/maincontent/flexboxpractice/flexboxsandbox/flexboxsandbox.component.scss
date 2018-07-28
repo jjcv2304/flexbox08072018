@@ -1,0 +1,25 @@
+.flexbox-sandbox-container {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+}
+.sandbox-content {
+  order: 1;
+  flex-basis:60%;
+  background-color: aqua;
+}
+.sandbox-controls-side {
+  order: 2;
+  flex-basis:40%;
+  max-width: 40%;
+}
+
+#flexboxsandbox-tab-group ::ng-deep.mat-tab-label,
+#flexboxsandbox-tab-group  ::ng-deep.mat-tab-label-active{
+  min-width: 0;
+  padding: 5px 15px;
+  margin: 5px 15px;
+}
+
+
+

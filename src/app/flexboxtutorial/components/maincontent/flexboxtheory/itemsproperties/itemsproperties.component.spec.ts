@@ -1,22 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContainerpropertiesComponent } from './containerproperties.component';
-import {MaterialModule} from '../../../../shared/material.module';
+import { ItemspropertiesComponent } from './itemsproperties.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from '../../../../../shared/material.module';
 
-describe('ContainerpropertiesComponent', () => {
-  let component: ContainerpropertiesComponent;
-  let fixture: ComponentFixture<ContainerpropertiesComponent>;
+describe('ItemspropertiesComponent', () => {
+  let component: ItemspropertiesComponent;
+  let fixture: ComponentFixture<ItemspropertiesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MaterialModule, BrowserAnimationsModule],
-      declarations: [ ContainerpropertiesComponent ]
-    }).compileComponents();
+      declarations: [ ItemspropertiesComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContainerpropertiesComponent);
+    fixture = TestBed.createComponent(ItemspropertiesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,9 +9,10 @@ import { FlexboxtutorialAppComponent } from './flexboxtutorial-app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
-import { FlexboxtheoryComponent } from './components/flexboxtheory/generalproperties/flexboxtheory.component';
-import { ContainerpropertiesComponent } from './components/flexboxtheory/containerproperties/containerproperties.component';
-import { ItemspropertiesComponent } from './components/flexboxtheory/itemsproperties/itemsproperties.component';
+import { FlexboxtheoryComponent } from './components/maincontent/flexboxtheory/generalproperties/flexboxtheory.component';
+import { ContainerpropertiesComponent } from './components/maincontent/flexboxtheory/containerproperties/containerproperties.component';
+import { ItemspropertiesComponent } from './components/maincontent/flexboxtheory/itemsproperties/itemsproperties.component';
+import { FlexboxsandboxComponent } from './components/maincontent/flexboxpractice/flexboxsandbox/flexboxsandbox.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'flexboxtheory', component: FlexboxtheoryComponent },
       { path: 'containerproperties', component: ContainerpropertiesComponent },
       { path: 'itemsproperties', component: ItemspropertiesComponent },
+      { path: 'flexboxsandbox', component: FlexboxsandboxComponent },
     ]
   },
   { path: '**', redirectTo: '' }
@@ -35,6 +37,6 @@ const routes: Routes = [
   ],
   declarations: [FlexboxtutorialAppComponent, ToolbarComponent,
     SidenavComponent, FlexboxtheoryComponent, ContainerpropertiesComponent,
-    ItemspropertiesComponent]
+    ItemspropertiesComponent, FlexboxsandboxComponent]
 })
 export class FlexboxtutorialModule { }
