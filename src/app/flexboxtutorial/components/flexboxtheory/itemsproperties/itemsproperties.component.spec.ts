@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemspropertiesComponent } from './itemsproperties.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from '../../../../shared/material.module';
 
 describe('ItemspropertiesComponent', () => {
   let component: ItemspropertiesComponent;
@@ -8,6 +10,7 @@ describe('ItemspropertiesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule, BrowserAnimationsModule],
       declarations: [ ItemspropertiesComponent ]
     })
     .compileComponents();
