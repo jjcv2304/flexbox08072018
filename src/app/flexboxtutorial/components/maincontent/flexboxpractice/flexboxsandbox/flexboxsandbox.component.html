@@ -4,11 +4,7 @@
   </div>
   <div class="sandbox-controls-side">
     <mat-card>
-      <mat-card-header>
-        <mat-card-subtitle class="text-center">
-          Properties
-        </mat-card-subtitle>
-      </mat-card-header>
+
       <mat-card-content>
         <mat-tab-group id="flexboxsandbox-tab-group">
 
@@ -17,24 +13,24 @@
             <div class="example-container mat-elevation-z8">
               <mat-table #table [dataSource]="dataSourceContainerProperties">
 
-                <ng-container matColumnDef="name">
-                  <mat-header-cell *matHeaderCellDef>Property Name</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-                </ng-container>
+                <!--<ng-container matColumnDef="name">-->
+                  <!--<mat-header-cell *matHeaderCellDef>Property Name</mat-header-cell>-->
+                  <!--<mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>-->
+                <!--</ng-container>-->
 
                 <ng-container matColumnDef="value">
                   <mat-header-cell *matHeaderCellDef>Property Value</mat-header-cell>
 
                   <mat-cell *matCellDef="let element">
-                    <mat-form-field *ngIf="element.valueType != 'dropdown'">
-                      <mat-select placeholder="Choose">
-                        <mat-option *ngFor="let availableValue of element.availableValues" [value]="availableValue.value">
-                          {{ availableValue.viewValue }}
+                    <mat-form-field *ngIf="element.valueType == ValueType.dropdown">
+                      <mat-select placeholder="{{element.name}}">
+                        <mat-option *ngFor="let availableValue of element.availableValues" [value]="availableValue">
+                          {{ availableValue }}
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <mat-form-field *ngIf="element.valueType=='dropdown'" class="example-full-width">
-                      <input matInput placeholder="value">
+                    <mat-form-field *ngIf="element.valueType != ValueType.dropdown" class="example-full-width">
+                      <input matInput placeholder="{{element.name}}">
                     </mat-form-field>
                   </mat-cell>
                 </ng-container>
@@ -46,7 +42,33 @@
 
           </mat-tab>
           <mat-tab label="Items">
-            Items test
+            <mat-table #table [dataSource]="dataSourceItemProperties">
+
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Property Name</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="value">
+                <mat-header-cell *matHeaderCellDef>Property Value</mat-header-cell>
+
+                <mat-cell *matCellDef="let element">
+                  <mat-form-field *ngIf="element.valueType == ValueType.dropdown">
+                    <mat-select placeholder="{{element.name}}">
+                      <mat-option *ngFor="let availableValue of element.availableValues" [value]="availableValue">
+                        {{ availableValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field *ngIf="element.valueType != ValueType.dropdown" class="example-full-width">
+                    <input matInput placeholder="{{element.name}}">
+                  </mat-form-field>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumnsItemProperties"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsItemProperties;"></mat-row>
+            </mat-table>
           </mat-tab>
           <mat-tab label="Dom">
             Dom
