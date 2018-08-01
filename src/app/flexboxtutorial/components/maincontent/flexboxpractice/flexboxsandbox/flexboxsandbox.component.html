@@ -4,19 +4,12 @@
   </div>
   <div class="sandbox-controls-side">
     <mat-card>
-
       <mat-card-content>
         <mat-tab-group id="flexboxsandbox-tab-group">
-
           <mat-tab label="Container">
 
             <div class="example-container mat-elevation-z8">
               <mat-table #table [dataSource]="dataSourceContainerProperties">
-
-                <!--<ng-container matColumnDef="name">-->
-                  <!--<mat-header-cell *matHeaderCellDef>Property Name</mat-header-cell>-->
-                  <!--<mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>-->
-                <!--</ng-container>-->
 
                 <ng-container matColumnDef="value">
                   <mat-header-cell *matHeaderCellDef>Property Value</mat-header-cell>

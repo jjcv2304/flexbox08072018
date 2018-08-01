@@ -2,13 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 
 export enum ValueType {dropdown, number, string, bool }
-
 export interface FlexboxProperty {
   name: string;
   valueType: ValueType;
   availableValues: string[];
 }
-
 const containerProperties: FlexboxProperty[] = [
   {
     name: 'display',
@@ -40,7 +38,6 @@ const containerProperties: FlexboxProperty[] = [
     availableValues: ['flex-start' , 'flex-end' , 'center' , 'space-between' , 'space-around', 'stretch']
   }
 ];
-
 const itemProperties: FlexboxProperty[] = [
   {
     name: 'order',
@@ -77,13 +74,9 @@ const itemProperties: FlexboxProperty[] = [
 export class FlexboxsandboxComponent implements OnInit {
   displayedColumnsContainerProperties: string[] = ['value'];
   dataSourceContainerProperties = new MatTableDataSource(containerProperties);
-
-  get ValueType() {
-    return ValueType;
-  }
-
   displayedColumnsItemProperties: string[] = [ 'value'];
   dataSourceItemProperties = new MatTableDataSource(itemProperties);
+  get ValueType() { return ValueType; }
 
   constructor() {
   }
