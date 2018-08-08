@@ -6,7 +6,11 @@
 .sandbox-content {
   order: 1;
   flex-basis:65%;
-  background-color: aqua;
+  //background-color: primary;
+  border: 1px solid;
+  height: 525px;
+  display: flex;
+  //flex-wrap: wrap;
 }
 .sandbox-controls-side {
   order: 2;
@@ -30,5 +34,8 @@ table {
   width: 100%;
 }
 
-
-
+.dom-controls {
+  display: flex;
+  flex-direction: column;
+  button { margin: 10px;}
+}

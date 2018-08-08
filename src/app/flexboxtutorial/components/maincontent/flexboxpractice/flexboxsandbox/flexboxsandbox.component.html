@@ -1,11 +1,11 @@
 <div class="flexbox-sandbox-container">
-  <div class="sandbox-content">
-    Content
+  <div class="sandbox-content" #sandboxContent>
+
   </div>
   <div class="sandbox-controls-side">
     <mat-card>
       <mat-card-content>
-        <mat-tab-group id="flexboxsandbox-tab-groups">
+        <mat-tab-group id="flexboxsandbox-tab-group">
           <mat-tab label="Container">
 
             <div class="example-container mat-elevation-z8">
@@ -64,7 +64,11 @@
             </mat-table>
           </mat-tab>
           <mat-tab label="Dom">
-            Dom
+            <div class="dom-controls">
+              <button (click)="addDiv()" mat-raised-button color="basic">Add Div</button>
+              <button (click)="deleteDiv()" mat-raised-button color="basic">Delete Div</button>
+              <button (click)="newSandbox()" mat-raised-button color="basic">New Sandbox</button>
+            </div>
           </mat-tab>
         </mat-tab-group>
       </mat-card-content>

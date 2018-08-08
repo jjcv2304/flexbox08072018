@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {FormControl} from '@angular/forms';
+import {forEach} from '@angular/router/src/utils/collection';
 
 export enum ValueType {dropdown, number, string, bool }
 export interface FlexboxProperty {
@@ -66,6 +67,7 @@ const itemProperties: FlexboxProperty[] = [
     availableValues: ['auto' , 'flex-start' , 'flex-end' , 'center' , 'baseline' ,  'stretch']
   }
 ];
+const colors: string[] = ['red', 'green', 'blue', 'yellow', 'pink', 'grey', 'light-red', 'light-blue'];
 
 @Component({
   selector: 'app-flexboxsandbox',
@@ -78,10 +80,44 @@ export class FlexboxsandboxComponent implements OnInit {
   displayedColumnsItemProperties: string[] = [ 'value'];
   dataSourceItemProperties = new MatTableDataSource(itemProperties);
   get ValueType() { return ValueType; }
+  @ViewChild('sandboxContent', {read: ElementRef}) sandboxContent: ElementRef;
+  selectedSandboxDiv: ElementRef;
+  numberOfElementsInSandbox = 0;
 
-  constructor() {
+  constructor(private renderer: Renderer2) {
   }
 
   ngOnInit() {
   }
+
+  addDiv() {
+    const div = this.renderer.createElement('div');
+    const text = this.renderer.createText('Id: ' + this.numberOfElementsInSandbox);
+    this.renderer.setStyle(div, 'background-color', colors[this.numberOfElementsInSandbox]);
+    // this.renderer.setStyle(div, 'min-height', '100px');
+    // this.renderer.setStyle(div, 'min-width', '100px');
+    this.renderer.setStyle(div, 'height', '100%');
+    this.renderer.setStyle(div, 'width', '100%');
+
+    this.renderer.appendChild(div, text);
+    this.renderer.appendChild(this.sandboxContent.nativeElement, div);
+    this.numberOfElementsInSandbox += 1;
+    this.renderer.listen(div, 'click', () => {
+      this.selectedSandboxDiv = div;
+    });
+  }
+
+  deleteDiv() {
+    this.renderer.removeChild(this.sandboxContent.nativeElement, this.selectedSandboxDiv);
+    this.numberOfElementsInSandbox -= 1;
+  }
+
+  newSandbox() {
+    const divs = this.sandboxContent.nativeElement.children;
+    for (const div of divs) {
+      this.renderer.removeChild(this.sandboxContent.nativeElement, div);
+    }
+    this.numberOfElementsInSandbox = 0;
+  }
+
 }
