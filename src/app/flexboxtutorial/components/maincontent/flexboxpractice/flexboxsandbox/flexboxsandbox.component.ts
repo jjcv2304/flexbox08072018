@@ -91,20 +91,24 @@ export class FlexboxsandboxComponent implements OnInit {
   }
 
   addDiv() {
-    const div = this.renderer.createElement('div');
-    const text = this.renderer.createText('Id: ' + this.numberOfElementsInSandbox);
-    this.renderer.setStyle(div, 'background-color', colors[this.numberOfElementsInSandbox]);
-    // this.renderer.setStyle(div, 'min-height', '100px');
-    // this.renderer.setStyle(div, 'min-width', '100px');
-    this.renderer.setStyle(div, 'height', '100%');
-    this.renderer.setStyle(div, 'width', '100%');
-
-    this.renderer.appendChild(div, text);
+    const div = this.createNewDiv();
     this.renderer.appendChild(this.sandboxContent.nativeElement, div);
     this.numberOfElementsInSandbox += 1;
+  }
+  private addClickEvent(div) {
     this.renderer.listen(div, 'click', () => {
       this.selectedSandboxDiv = div;
     });
+  }
+  private createNewDiv() {
+    const div = this.renderer.createElement('div');
+    const text = this.renderer.createText('Id: ' + this.numberOfElementsInSandbox);
+    this.renderer.appendChild(div, text);
+    this.renderer.setStyle(div, 'background-color', colors[this.numberOfElementsInSandbox]);
+    this.renderer.setStyle(div, 'height', '100%');
+    this.renderer.setStyle(div, 'width', '100%');
+    this.addClickEvent(div);
+    return div;
   }
 
   deleteDiv() {
