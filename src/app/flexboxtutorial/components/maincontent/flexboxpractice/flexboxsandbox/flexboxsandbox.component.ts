@@ -1,7 +1,6 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-import {FormControl} from '@angular/forms';
-import {forEach} from '@angular/router/src/utils/collection';
+import {TOASTR_TOKEN, Toastr} from '../../../../../common/toastr.service';
 
 export enum ValueType {dropdown, number, string, bool }
 export interface FlexboxProperty {
@@ -84,7 +83,7 @@ export class FlexboxsandboxComponent implements OnInit {
   selectedSandboxDiv: ElementRef;
   numberOfElementsInSandbox = 0;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
   }
 
   ngOnInit() {
@@ -94,6 +93,7 @@ export class FlexboxsandboxComponent implements OnInit {
     const div = this.createNewDiv();
     this.renderer.appendChild(this.sandboxContent.nativeElement, div);
     this.numberOfElementsInSandbox += 1;
+    this.toastr.info('Div added');
   }
   private addClickEvent(div) {
     this.renderer.listen(div, 'click', () => {
@@ -114,6 +114,7 @@ export class FlexboxsandboxComponent implements OnInit {
   deleteDiv() {
     this.renderer.removeChild(this.sandboxContent.nativeElement, this.selectedSandboxDiv);
     this.numberOfElementsInSandbox -= 1;
+    this.toastr.info('Div removed');
   }
 
   newSandbox() {
